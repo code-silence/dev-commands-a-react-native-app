@@ -97,11 +97,11 @@ export default function HomeScreen() {
         <View style={styles.header}>
           <View>
             <Text style={styles.greeting}>
-              DEVELOPER TOOLKIT
+              Welcome to
             </Text>
 
             <Text style={styles.title}>
-              DevCommands
+              Cmdly
             </Text>
           </View>
 
@@ -173,7 +173,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.resultCard,
                     pressed &&
-                      styles.cardPressed,
+                    styles.cardPressed,
                   ]}
                   onPress={() =>
                     navigation.navigate(
@@ -296,7 +296,7 @@ export default function HomeScreen() {
                     style={({ pressed }) => [
                       styles.card,
                       pressed &&
-                        styles.cardPressed,
+                      styles.cardPressed,
                     ]}
                     onPress={() =>
                       navigation.navigate(
@@ -362,6 +362,7 @@ export default function HomeScreen() {
               )}
             </View>
 
+            
             {/* Recently Used */}
             {recentCommands.length > 0 && (
               <View style={styles.recentSection}>
@@ -408,10 +409,10 @@ export default function HomeScreen() {
                           style={({
                             pressed,
                           }) => [
-                            styles.recentCard,
-                            pressed &&
+                              styles.recentCard,
+                              pressed &&
                               styles.cardPressed,
-                          ]}
+                            ]}
                           onPress={() =>
                             navigation.navigate(
                               "CommandDetails",
@@ -501,6 +502,34 @@ export default function HomeScreen() {
                 </View>
               </View>
             )}
+            <Pressable
+              style={({ pressed }) => [
+                styles.aboutButton,
+                pressed && styles.cardPressed,
+              ]}
+              onPress={() =>
+                navigation.navigate("AboutDeveloper")
+              }
+            >
+              <View style={styles.aboutIcon}>
+                <Text style={styles.aboutIconText}>
+                  A
+                </Text>
+              </View>
+
+              <View style={styles.aboutContent}>
+                <Text style={styles.aboutTitle}>
+                  About Developer
+                </Text>
+
+                <Text style={styles.aboutDescription}>
+                  Learn more about the developer behind CMDLY.
+                </Text>
+              </View>
+
+              <Text style={styles.arrow}>›</Text>
+            </Pressable>
+
           </>
         )}
       </ScrollView>
@@ -831,5 +860,45 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontFamily: "monospace",
     color: "#FFFFFF",
+  },
+  aboutButton: {
+    marginTop: 28,
+    padding: 14,
+    borderRadius: 18,
+    backgroundColor: "#FFFFFF",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  aboutIcon: {
+    width: 46,
+    height: 46,
+    borderRadius: 14,
+    backgroundColor: "#EDE9FF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  aboutIconText: {
+    fontSize: 17,
+    fontWeight: "800",
+    color: "#6C4CF1",
+  },
+
+  aboutContent: {
+    flex: 1,
+    marginLeft: 12,
+  },
+
+  aboutTitle: {
+    fontSize: 15,
+    fontWeight: "700",
+    color: "#202127",
+  },
+
+  aboutDescription: {
+    marginTop: 3,
+    fontSize: 11,
+    color: "#858792",
   },
 });
